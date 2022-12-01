@@ -5,7 +5,6 @@
 using namespace std;
 
 int main() {
-
     vector<int> cal;
     string line;
     ifstream input("input.txt");
@@ -14,29 +13,18 @@ int main() {
     while(!input.eof()) {
         getline(input, line);
         if (line == "") {
-            // append the number
             cal.push_back(num);
-            // set num back to zero
             num = 0;
-        } else {
-            num += stoi(line);
-        } 
-
+        } else num += stoi(line);
     }
 
-    // getting the size of the vector
     int len = cal.size() - 1;
-    // sorting the vector
     sort(cal.begin(), cal.end());
-
-    // calculating sum of top 3
-    int topThree = 0;
-    for (int i = len; i > len - 3; i--) {
-        topThree += cal[i];
-        
-    }
+    int topThree = cal[len] + cal[len - 1] + cal[len - 2];
+    int largest = cal[len];
     
-    cout << topThree << "\n";
+    cout << "Largest: " << largest << "\n";
+    cout << "Top 3: " << topThree << "\n";
     input.close();
     return 0;
 }
