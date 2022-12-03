@@ -1,6 +1,5 @@
 #include <iostream>
 #include <fstream>
-#include <algorithm>
 
 int scoreCalculator(std::string gameState) {
     int score = 0;
